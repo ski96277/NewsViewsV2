@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">NewsViews</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Imran Sk</string>
+    <string name="slide_1_desc">I\'m an Android developer</string>
+
+    <string name="slide_2_title">News Views</string>
+    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
+
+    <string name="slide_3_title">রকমারি.কম</string>
+    <string name="slide_3_desc">রকমারি.com হচ্ছে বাংলাদেশে অন্যতম জনপ্রিয় ও সর্বপ্রথম অনলাইন পণ্য কেনার বা ই-বাণিজ্য প্রতিষ্ঠান</string>
+
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    //menu text
+    <string name="action_settings">Search</string>
+</resources>
