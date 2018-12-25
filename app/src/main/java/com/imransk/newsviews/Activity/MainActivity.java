@@ -1,11 +1,13 @@
 package com.imransk.newsviews.Activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,10 +45,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        clk1=(LinearLayout)findViewById(R.id.click1);
-        clk2=(LinearLayout)findViewById(R.id.click2);
-        clk3=(LinearLayout)findViewById(R.id.click3);
-        clk4=(LinearLayout)findViewById(R.id.click4);
+        clk1 = (LinearLayout) findViewById(R.id.home_nav);
+        clk2 = (LinearLayout) findViewById(R.id.about_nav);
+        clk3 = (LinearLayout) findViewById(R.id.exist_nav);
+        clk4 = (LinearLayout) findViewById(R.id.logout_nav);
+   clk1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_clickb, null));
+
         Initializing();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,9 +58,10 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
-    public void Initializing(){
+
+    public void Initializing() {
         Fragment fragment = null;
-        Class fragmentClass =  HomeFragment.class;
+        Class fragmentClass = HomeFragment.class;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -65,34 +71,33 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.screen_area, fragment).commit();
     }
 
-    public void ClickNavigation(View view){
+    public void ClickNavigation(View view) {
         Fragment fragment = null;
-        Class fragmentClass =  HomeFragment.class;
+        Class fragmentClass = HomeFragment.class;
 
-        switch (view.getId()){
-            case R.id.click1:
+        switch (view.getId()) {
+            case R.id.home_nav:
                 fragmentClass = HomeFragment.class;
                 clk1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_clickb, null));
                 clk2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 clk3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 clk4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 break;
-            case R.id.click2:
+            case R.id.about_nav:
                 fragmentClass = AboutFragment.class;
-                Toast.makeText(this, "Click 2", Toast.LENGTH_SHORT).show();
                 clk1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 clk2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_clickb, null));
                 clk3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 clk4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 break;
-            case R.id.click3:
-                Toast.makeText(this, "exit", Toast.LENGTH_SHORT).show();
+            case R.id.exist_nav:
+                alertDailog_Exits();
                 clk1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 clk2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 clk3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_clickb, null));
                 clk4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 break;
-            case R.id.click4:
+            case R.id.logout_nav:
                 Toast.makeText(this, "Log out", Toast.LENGTH_SHORT).show();
                 clk1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
                 clk2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_click, null));
@@ -110,6 +115,31 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    private void alertDailog_Exits() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+        builder1.setTitle("Alert...");
+        builder1.setMessage("Do you Want to Exit ?");
+        builder1.setCancelable(false);
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                        Toast.makeText(MainActivity.this, "exit", Toast.LENGTH_SHORT).show();
+                        System.exit(0);
+                    }
+                });
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
     }
 
     @Override

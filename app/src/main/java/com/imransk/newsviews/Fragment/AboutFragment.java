@@ -15,6 +15,7 @@ public class AboutFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle("About Page");
         return inflater.inflate(R.layout.about_fragment,null);
     }
 

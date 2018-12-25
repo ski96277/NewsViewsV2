@@ -7,7 +7,8 @@
 
     <!-- Nav background color-->
     <color name="colorPrimaryText">#000</color>
-    <color name="clr2">#918b8b</color>
+    <color name="clr2">#FFF</color>
+    <color name="clr1">#918b8b</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>
