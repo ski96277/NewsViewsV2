@@ -1,6 +1,7 @@
 package com.imransk.newsviews.Activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.imransk.newsviews.Fragment.AboutFragment;
 import com.imransk.newsviews.Fragment.HomeFragment;
+import com.imransk.newsviews.JavaCLass.CheckNetwork;
 import com.imransk.newsviews.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,13 +43,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-
-        clk1 = (LinearLayout) findViewById(R.id.home_nav);
-        clk2 = (LinearLayout) findViewById(R.id.about_nav);
-        clk3 = (LinearLayout) findViewById(R.id.exist_nav);
-        clk4 = (LinearLayout) findViewById(R.id.logout_nav);
-   clk1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_clickb, null));
 
         Initializing();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -60,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Initializing() {
+        clk1 = (LinearLayout) findViewById(R.id.home_nav);
+        clk2 = (LinearLayout) findViewById(R.id.about_nav);
+        clk3 = (LinearLayout) findViewById(R.id.exist_nav);
+        clk4 = (LinearLayout) findViewById(R.id.logout_nav);
+        clk1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.button_clickb, null));
+
         Fragment fragment = null;
         Class fragmentClass = HomeFragment.class;
         try {
@@ -168,7 +167,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
-            Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,Search_Activity.class));
+
             return true;
         }
 

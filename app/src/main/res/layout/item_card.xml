@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="275dp"
@@ -12,6 +13,7 @@
         android:layout_height="260dp"
         android:padding="1dp"
         app:cardElevation="19dp"
+        cardElevation="20sp"
         android:layout_margin="3dp"
         app:cardCornerRadius="9dp"
         app:contentPadding="3dp">
@@ -46,7 +48,6 @@
                 android:layout_marginTop="-196dp"
                 android:layout_marginEnd="0dp"
                 android:padding="5dp"
-                android:text="ABC News ABC News"
                 android:textColor="#FFF" />
 
             <TextView
